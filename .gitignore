@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+config.local.py
+dashboard_data.json
+preview_v2.html
+market_flow.db
+*.tmp
+sector_check.json
+all_sectors.json
+all_concepts.json
+cols_test.txt

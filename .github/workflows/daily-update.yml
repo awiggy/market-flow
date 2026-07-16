@@ -1,0 +1,45 @@
+name: Daily Market Flow Update
+
+on:
+  schedule:
+    - cron: "30 8 * * 1-5"  # UTC 8:30 = 北京 16:30, 周一至周五
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install akshare pandas
+
+      - name: Run data pipeline
+        run: python main.py
+
+      - name: Export dashboard data
+        run: python export_history.py
+
+      - name: Build preview
+        run: python build_preview.py
+
+      - name: Commit & push updates
+        run: |
+          git config user.name "MarketFlow Bot"
+          git config user.email "bot@marketflow.daily"
+          git add -f preview_v2.html dashboard_data.json
+          git diff --staged --quiet || (git commit -m "Update: $(date +%Y-%m-%d)" && git pull --rebase origin master && git push)
+
+      - name: Notify failure
+        if: failure()
+        run: |
+          curl -s -X POST https://www.pushplus.plus/send \
+            -H "Content-Type: application/json" \
+            -d "{\"token\":\"${{ secrets.PUSHPLUS_TOKEN }}\",\"title\":\"market-flow 更新失败\",\"content\":\"$(date +%Y-%m-%d) 资金流向日报自动更新失败，请检查 Actions 日志\"}"

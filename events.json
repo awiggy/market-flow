@@ -1,0 +1,16 @@
+[
+  {"date":"6/2","event":"SK海力士5年产能翻倍","impact":"存储芯片","direction":"利好","weight":4},
+  {"date":"6/5","event":"博通暴雷→半导体链式下跌","impact":"半导体","direction":"利空","weight":5},
+  {"date":"6/5","event":"美国非农就业数据(今晚)","impact":"有色、全局","direction":"待观察","weight":3},
+  {"date":"6/9","event":"美联储利率决策","impact":"有色（美元↑→大宗↓）","direction":"偏鹰","weight":3},
+  {"date":"6/11","event":"世界杯开幕（39天）","impact":"全局流动性↓","direction":"成交量萎缩","weight":4},
+  {"date":"6/12","event":"SpaceX IPO（纳斯达克 SPCX）","impact":"AI+航天，全球流动性大抽血","direction":"吸金巨兽","weight":5},
+  {"date":"6/中","event":"长江存储递交科创板招股书","impact":"半导体","direction":"利好","weight":5},
+  {"date":"6/中下","event":"长鑫科技提交证监会注册","impact":"半导体","direction":"利好","weight":4},
+  {"date":"6/18","event":"中国LPR利率","impact":"全局","direction":"待观察","weight":2},
+  {"date":"6/末","event":"半年末流动性考核","impact":"全局资金面","direction":"收紧","weight":2},
+  {"date":"7月","event":"长鑫科技正式挂牌上市","impact":"半导体","direction":"利好出尽？","weight":5},
+  {"date":"7/19","event":"世界杯决赛","impact":"全局流动性","direction":"赛后资金回流？","weight":3},
+  {"date":"9月","event":"OpenAI IPO","impact":"AI、全球流动性","direction":"吸金巨兽","weight":4},
+  {"date":"10月","event":"Anthropic IPO","impact":"AI、全球流动性","direction":"吸金巨兽","weight":4}
+]
